@@ -1,0 +1,301 @@
+[
+  {
+    "__aggregateId": "973e9af7-8b3f-4ddb-915b-5a6ae474c0db",
+    "__aggregateName": "TASK",
+    "__commandName": "CREATE",
+    "__type": "TASK_CREATED",
+    "name": "First"
+  },
+  {
+    "__aggregateId": "dff21e44-d9ae-4f3b-987a-c4fd3183bf29",
+    "__aggregateName": "TASK",
+    "__commandName": "CREATE",
+    "name": "Second",
+    "__type": "TASK_CREATED"
+  },
+  {
+    "__aggregateId": "58ce1b80-293f-42ef-b8fc-b5546f209e2c",
+    "__aggregateName": "TASK",
+    "__commandName": "CREATE",
+    "name": "Third",
+    "__type": "TASK_CREATED"
+  },
+  {
+    "__aggregateId": "77d441e7-82bd-4f6b-99ee-dcb388538d13",
+    "__aggregateName": "TASK",
+    "__commandName": "CREATE",
+    "name": "abc",
+    "__type": "TASK_CREATED"
+  },
+  {
+    "__aggregateId": "533a7794-cd22-4ced-9493-50d06237f3bb",
+    "__aggregateName": "TASK",
+    "__commandName": "CREATE",
+    "name": "asd",
+    "__type": "TASK_CREATED"
+  },
+  {
+    "__aggregateId": "aa431e78-b55d-4ea0-af17-d173ccc425a6",
+    "__aggregateName": "TASK",
+    "__commandName": "CREATE",
+    "name": "xxx",
+    "__type": "TASK_CREATED"
+  },
+  {
+    "__aggregateName": "TASK",
+    "__commandName": "DELETE",
+    "__aggregateId": "973e9af7-8b3f-4ddb-915b-5a6ae474c0db",
+    "__type": "TASK_DELETED"
+  },
+  {
+    "__aggregateName": "TASK",
+    "__commandName": "DELETE",
+    "__aggregateId": "dff21e44-d9ae-4f3b-987a-c4fd3183bf29",
+    "__type": "TASK_DELETED"
+  },
+  {
+    "__aggregateName": "TASK",
+    "__commandName": "DELETE",
+    "__aggregateId": "aa431e78-b55d-4ea0-af17-d173ccc425a6",
+    "__type": "TASK_DELETED"
+  },
+  {
+    "__aggregateName": "TASK",
+    "__commandName": "DELETE",
+    "__aggregateId": "533a7794-cd22-4ced-9493-50d06237f3bb",
+    "__type": "TASK_DELETED"
+  },
+  {
+    "__aggregateName": "TASK",
+    "__commandName": "DELETE",
+    "__aggregateId": "77d441e7-82bd-4f6b-99ee-dcb388538d13",
+    "__type": "TASK_DELETED"
+  },
+  {
+    "__aggregateName": "TASK",
+    "__commandName": "CREATE",
+    "__aggregateId": "3f580e5b-7edd-4ee6-8c85-92cb9e6a66e2",
+    "name": "First",
+    "__type": "TASK_CREATED"
+  },
+  {
+    "__aggregateName": "TASK",
+    "__commandName": "CREATE",
+    "__aggregateId": "c52b4a22-2d97-4f71-9cee-99de7838f8b9",
+    "name": "Second",
+    "__type": "TASK_CREATED"
+  },
+  {
+    "__aggregateName": "TASK",
+    "__commandName": "CREATE",
+    "__aggregateId": "ccf7151a-afdb-411d-9b63-48d874dca249",
+    "name": "888",
+    "__type": "TASK_CREATED"
+  },
+  {
+    "__aggregateName": "TASK",
+    "__commandName": "DELETE",
+    "__aggregateId": "58ce1b80-293f-42ef-b8fc-b5546f209e2c",
+    "__type": "TASK_DELETED"
+  },
+  {
+    "__aggregateName": "TASK",
+    "__commandName": "DELETE",
+    "__aggregateId": "3f580e5b-7edd-4ee6-8c85-92cb9e6a66e2",
+    "__type": "TASK_DELETED"
+  },
+  {
+    "__aggregateName": "TASK",
+    "__commandName": "DELETE",
+    "__aggregateId": "c52b4a22-2d97-4f71-9cee-99de7838f8b9",
+    "__type": "TASK_DELETED"
+  },
+  {
+    "__aggregateName": "TASK",
+    "__commandName": "DELETE",
+    "__aggregateId": "ccf7151a-afdb-411d-9b63-48d874dca249",
+    "__type": "TASK_DELETED"
+  },
+  {
+    "__aggregateName": "TASK",
+    "__commandName": "CREATE",
+    "__aggregateId": "befaa9c1-f072-4593-a31f-5f7c4730d948",
+    "name": "111",
+    "__type": "TASK_CREATED"
+  },
+  {
+    "__aggregateName": "TASK",
+    "__commandName": "CREATE",
+    "__aggregateId": "5e23e7cd-96fe-48dd-9714-e6c11341dd63",
+    "name": "222",
+    "__type": "TASK_CREATED"
+  },
+  {
+    "__aggregateName": "TASK",
+    "__commandName": "CREATE",
+    "__aggregateId": "e2e0833d-ad7c-42df-a647-04c7704be974",
+    "name": "333",
+    "__type": "TASK_CREATED"
+  },
+  {
+    "__aggregateName": "TASK",
+    "__commandName": "CREATE",
+    "__aggregateId": "fc866982-3781-4160-a5d5-15e5c9d7f2bf",
+    "name": "789",
+    "__type": "TASK_CREATED"
+  },
+  {
+    "__aggregateName": "TASK",
+    "__commandName": "CREATE",
+    "__aggregateId": "54574cf6-bf98-4c95-b37d-ef7af94f7673",
+    "name": "78979",
+    "__type": "TASK_CREATED"
+  },
+  {
+    "__aggregateName": "TASK",
+    "__commandName": "DELETE",
+    "__aggregateId": "befaa9c1-f072-4593-a31f-5f7c4730d948",
+    "__type": "TASK_DELETED"
+  },
+  {
+    "__aggregateName": "TASK",
+    "__commandName": "DELETE",
+    "__aggregateId": "5e23e7cd-96fe-48dd-9714-e6c11341dd63",
+    "__type": "TASK_DELETED"
+  },
+  {
+    "__aggregateName": "TASK",
+    "__commandName": "DELETE",
+    "__aggregateId": "e2e0833d-ad7c-42df-a647-04c7704be974",
+    "__type": "TASK_DELETED"
+  },
+  {
+    "__aggregateName": "TASK",
+    "__commandName": "DELETE",
+    "__aggregateId": "fc866982-3781-4160-a5d5-15e5c9d7f2bf",
+    "__type": "TASK_DELETED"
+  },
+  {
+    "__aggregateName": "TASK",
+    "__commandName": "DELETE",
+    "__aggregateId": "54574cf6-bf98-4c95-b37d-ef7af94f7673",
+    "__type": "TASK_DELETED"
+  },
+  {
+    "__aggregateName": "TASK",
+    "__commandName": "CREATE",
+    "__aggregateId": "2c32836b-be7f-4c4d-8468-3fc81c346268",
+    "name": "7897",
+    "__type": "TASK_CREATED"
+  },
+  {
+    "__aggregateName": "TASK",
+    "__commandName": "CREATE",
+    "__aggregateId": "7f8b82ea-ec10-427d-b531-f33bfb6cd2bb",
+    "name": "789798",
+    "__type": "TASK_CREATED"
+  },
+  {
+    "__aggregateName": "TASK",
+    "__commandName": "CREATE",
+    "__aggregateId": "3cb53f27-5355-4f7c-982a-329d5a69cfac",
+    "name": "zxczxc",
+    "__type": "TASK_CREATED"
+  },
+  {
+    "__aggregateName": "TASK",
+    "__commandName": "DELETE",
+    "__aggregateId": "7f8b82ea-ec10-427d-b531-f33bfb6cd2bb",
+    "__type": "TASK_DELETED"
+  },
+  {
+    "__aggregateName": "TASK",
+    "__commandName": "DELETE",
+    "__aggregateId": "2c32836b-be7f-4c4d-8468-3fc81c346268",
+    "__type": "TASK_DELETED"
+  },
+  {
+    "__aggregateName": "TASK",
+    "__commandName": "DELETE",
+    "__aggregateId": "2c32836b-be7f-4c4d-8468-3fc81c346268",
+    "__type": "TASK_DELETED"
+  },
+  {
+    "__aggregateName": "TASK",
+    "__commandName": "CREATE",
+    "__aggregateId": "91ed34d0-025d-4abc-a7c3-781471619831",
+    "name": "aaaaaa",
+    "__type": "TASK_CREATED"
+  },
+  {
+    "__aggregateName": "TASK",
+    "__commandName": "CREATE",
+    "__aggregateId": "0e89c907-2e04-417a-8fb2-efc1b02bfd00",
+    "name": "777",
+    "__type": "TASK_CREATED"
+  },
+  {
+    "__aggregateName": "TASK",
+    "__commandName": "DELETE",
+    "__aggregateId": "91ed34d0-025d-4abc-a7c3-781471619831",
+    "__type": "TASK_DELETED"
+  },
+  {
+    "__aggregateName": "TASK",
+    "__commandName": "CREATE",
+    "__aggregateId": "b685c476-2d6c-42d8-b3f2-0eecb2d05f4b",
+    "name": "asdasd",
+    "__type": "TASK_CREATED"
+  },
+  {
+    "__aggregateName": "TASK",
+    "__commandName": "CREATE",
+    "__aggregateId": "98610ba4-a26f-441c-ace2-8410d7e04f94",
+    "name": "dxapps-functional-tests",
+    "__type": "TASK_CREATED"
+  },
+  {
+    "__aggregateName": "TASK",
+    "__commandName": "CREATE",
+    "__aggregateId": "33ffc87e-5822-4210-a231-219a2c7ab38a",
+    "name": "dxapps-functional-tests",
+    "__type": "TASK_CREATED"
+  },
+  {
+    "__aggregateName": "TASK",
+    "__commandName": "CREATE",
+    "__aggregateId": "1fc6b119-9ff6-4524-a555-4577a7aef305",
+    "name": "dxapps-functional-tests",
+    "__type": "TASK_CREATED"
+  },
+  {
+    "__aggregateName": "TASK",
+    "__commandName": "DELETE",
+    "__aggregateId": "3cb53f27-5355-4f7c-982a-329d5a69cfac",
+    "__type": "TASK_DELETED"
+  },
+  {
+    "__aggregateName": "TASK",
+    "__commandName": "DELETE",
+    "__aggregateId": "0e89c907-2e04-417a-8fb2-efc1b02bfd00",
+    "__type": "TASK_DELETED"
+  },
+  {
+    "__aggregateName": "TASK",
+    "__commandName": "DELETE",
+    "__aggregateId": "b685c476-2d6c-42d8-b3f2-0eecb2d05f4b",
+    "__type": "TASK_DELETED"
+  },
+  {
+    "__aggregateName": "TASK",
+    "__commandName": "DELETE",
+    "__aggregateId": "98610ba4-a26f-441c-ace2-8410d7e04f94",
+    "__type": "TASK_DELETED"
+  },
+  {
+    "__aggregateName": "TASK",
+    "__commandName": "DELETE",
+    "__aggregateId": "33ffc87e-5822-4210-a231-219a2c7ab38a",
+    "__type": "TASK_DELETED"
+  }
+]
