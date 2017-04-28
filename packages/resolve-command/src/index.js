@@ -31,7 +31,11 @@ function executeCommand(command, aggregates, store) {
         .then((aggregateState) => {
             const handler = aggregate[command.__commandName];
             const event = handler(aggregateState, command);
-            return event;
+
+            return Object.assign({
+                __aggregateId: command.__aggregateId,
+                __type: event.type
+            }, event);
         });
 }
 

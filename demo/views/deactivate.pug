@@ -1,0 +1,9 @@
+html
+    head
+        title Demo
+    body
+        h1= 'Deactivate "'+item.name+'"?:'
+
+        form(method='POST')
+            input(name='_id' type='hidden' value=item._id)
+            input(type='submit' value='Submit')

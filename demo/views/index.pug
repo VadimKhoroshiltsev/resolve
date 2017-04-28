@@ -2,19 +2,14 @@ html
     head
         title Demo
     body
-        h1 TO DO LIST:
+        h1 All items:
 
         ul
-            each task in tasks
+            each item in items
                 li
-                    span= task.name
-                    form(method='POST', action='/')
-                        input(name='id' type='hidden' value=task.id)
-                        input(name='command' type='hidden' value='DELETE')
-                        input(type='submit' value='x')
+                    a(href=item._id)= item.name
 
         form(method='POST', action='/')
             input(name='name' id='name')
-            input(name='command' type='hidden' value='CREATE')
             input(type='submit' value='add')
 

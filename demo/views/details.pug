@@ -1,0 +1,21 @@
+html
+    head
+        title Demo
+    body
+        h1 Details:
+
+        div= 'Id: ' + item._id
+        div= 'Name: ' + item.name
+        div= 'Count: ' + item.count
+
+        br
+
+        div
+            a(href='/changename/'+item._id) Rename
+        div
+            a(href='/deactivate/'+item._id) Deactivate
+        div
+            a(href='/checkin/'+item._id) Check in
+        div
+            a(href='/remove/'+item._id) Remove
+

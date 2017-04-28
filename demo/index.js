@@ -11,7 +11,10 @@ import esDriver from '../packages/resolve-es-file/dist';
 import createBus from '../packages/resolve-bus/dist';
 import busDriver from '../packages/resolve-bus-memory/dist';
 import commandHandler from '../packages/resolve-command/dist';
-import aggregates from './aggregates';
+import query from '../packages/resolve-query/dist';
+
+import domain from './domain';
+import readModel from './read-model';
 
 const setupMiddlewares = (app) => {
     app.use( bodyParser.json() );
@@ -20,69 +23,120 @@ const setupMiddlewares = (app) => {
     app.set('view engine', 'pug');
 }
 
-const taskProjection = () => {
-    let state = Immutable({});
-    return {
-        initState: (bus, eventStore, aggregates) => {
-            const aggregate = aggregates['TASK'];
-            state = aggregate.__initialState();
-
-            bus.onEvent(['TASK_CREATED', 'TASK_DELETED'], (event) => {
-                state = aggregate.__applyEvent(state, event);
-            });
-
-            eventStore.loadEventsByTypes(['TASK_CREATED', 'TASK_DELETED'], (event) => {
-                state = aggregate.__applyEvent(state, event);
-            });
-        },
-
-        getTasks: () => state.tasks
-    }
-}
-
 const app = express();
 
 const eventStore = createStore({driver: esDriver({pathToFile: './storage/eventStore' })});
 const bus = createBus({ driver: busDriver()});
-const execute = commandHandler({ store: eventStore, bus, aggregates });
-
-const tasks = taskProjection();
+const execute = commandHandler({ store: eventStore, bus, aggregates: domain });
+const getList = query({ eventStore, eventBus: bus, projection: readModel.InventoryItemListView });
+const getDetails = query({ eventStore, eventBus: bus, projection: readModel.InventoryItemDetailView });
 
 setupMiddlewares(app);
-tasks.initState(bus, eventStore, aggregates);
 
 app.get('/', function (req, res) {
-    res.render('index', {
-        tasks: tasks.getTasks()
-    });
+    return getList()
+        .then(inventoryItems => res.render('index', {
+            items: Object.values(inventoryItems)
+        }));
 })
 
-app.post('/', (req, res) => {
-    const command = {
-        __aggregateName: 'TASK',
-        __commandName: req.body.command
-    };
+function postHandler(res, command) {
 
-    switch(req.body.command) {
-        case 'CREATE': {
-            Object.assign(command, {
-                __aggregateId: uuid.v4(),
-                name: req.body.name
-            })
-            break;
-        }
-        case 'DELETE': {
-            Object.assign(command, {
-                __aggregateId: req.body.id
-            })
-            break;
-        }
-    }
 
-    execute(command)
+    execute(Object.assign({
+        __aggregateName: 'inventoryItem'
+    }, command))
         .then(() => res.redirect('/'))
         .catch(() => res.redirect('/'))
+}
+
+app.post('/', (req, res) => {
+    const id = uuid.v4();
+    const command = {
+        __commandName: 'create',
+        __aggregateId: id,
+        name: req.body.name,
+        inventoryItemId: id
+    };
+
+    postHandler(res, command);
 })
+
+app.get('/:id', (req, res) => {
+    const id = req.params.id;
+
+    return getDetails()
+        .then(inventoryItems => res.render('details', {
+            item: inventoryItems[id]
+        }));
+});
+
+app.get('/changename/:id', (req, res) => {
+    const id = req.params.id;
+
+    return getDetails()
+        .then(inventoryItems => res.render('changename', {
+            item: inventoryItems[id]
+        }));
+});
+
+app.post('/changename/:id', (req, res) => {
+    postHandler(res, {
+        __aggregateId: req.params.id,
+        __commandName: 'changeName' ,
+        newName: req.body.newName
+    })
+});
+
+app.get('/checkin/:id', (req, res) => {
+    const id = req.params.id;
+
+    return getDetails()
+        .then(inventoryItems => res.render('checkin', {
+            item: inventoryItems[id]
+        }));
+});
+
+app.post('/checkin/:id', (req, res) => {
+    postHandler(res, {
+        __aggregateId: req.params.id,
+        __commandName: 'checkIn' ,
+        count: Number.parseInt(req.body.count)
+    })
+});
+
+app.get('/remove/:id', (req, res) => {
+    const id = req.params.id;
+
+    return getDetails()
+        .then(inventoryItems => res.render('remove', {
+            item: inventoryItems[id]
+        }));
+});
+
+app.post('/remove/:id', (req, res) => {
+    postHandler(res, {
+        __aggregateId: req.params.id,
+        __commandName: 'remove' ,
+        count: Number.parseInt(req.body.count)
+    })
+});
+
+app.get('/deactivate/:id', (req, res) => {
+    const id = req.params.id;
+
+    return getDetails()
+        .then(inventoryItems => res.render('deactivate', {
+            item: inventoryItems[id]
+        }));
+});
+
+app.post('/deactivate/:id', (req, res) => {
+    postHandler(res, {
+        __aggregateId: req.params.id,
+        __commandName: 'deactivate'
+    })
+});
 
 app.listen(3000, function () {
   console.log('Example app listening on port 3000!')

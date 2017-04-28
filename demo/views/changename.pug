@@ -1,0 +1,11 @@
+html
+    head
+        title Demo
+    body
+        h1 Rename:
+        div= item.name+' to '
+
+        form(method='POST')
+            input(name='newName')
+            input(name='_id' type='hidden' value=item._id)
+            input(type='submit' value='Rename')
