@@ -1,6 +1,15 @@
 import Immutable from 'seamless-immutable';
 
 export default {
+    INVENTORY_ITEM: {
+        changeName: (aggregate, args) => ({
+            __aggregateId: aggregate.__aggregateId,
+            __type:
+        })
+    }
+}
+
+export default {
     TASK: {
         __initialState: () => Immutable({
             tasks: []
