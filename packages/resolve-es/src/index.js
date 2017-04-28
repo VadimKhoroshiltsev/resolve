@@ -1,10 +1,9 @@
 export default ({ driver }) => {
-    const onEventSavedCallbacks = [];
+    let onEventSavedCallbacks = [];
 
     return {
-        saveEvent: event => driver
-            .saveEvent(event)
-            .then(() => onEventSavedCallbacks.forEach(cb => cb(event))),
+        saveEvent: event =>
+            driver.saveEvent(event).then(() => onEventSavedCallbacks.forEach(cb => cb(event))),
 
         loadEventsByTypes: driver.loadEventsByTypes,
 
@@ -12,6 +11,8 @@ export default ({ driver }) => {
 
         onEventSaved: (callback) => {
             onEventSavedCallbacks.push(callback);
+            return () =>
+                (onEventSavedCallbacks = onEventSavedCallbacks.filter(item => item !== callback));
         }
     };
 };
