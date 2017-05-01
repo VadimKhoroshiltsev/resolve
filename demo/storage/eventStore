@@ -1,36 +1,37 @@
 [
   {
-    "__aggregateId": "7aeceee9-4ff8-4157-9228-a5e6f13492d5",
+    "__aggregateId": "6b8205da-0fd5-4fc7-be81-3df0db19bd23",
+    "_id": "6b8205da-0fd5-4fc7-be81-3df0db19bd23",
     "__type": "InventoryItemCreated",
-    "_id": "7aeceee9-4ff8-4157-9228-a5e6f13492d5",
-    "type": "InventoryItemCreated",
-    "name": "SuperTest"
+    "name": "Test1"
   },
   {
-    "__aggregateId": "7aeceee9-4ff8-4157-9228-a5e6f13492d5",
+    "__aggregateId": "f10161de-b1ff-4383-a8d3-2bfa8230f139",
+    "_id": "f10161de-b1ff-4383-a8d3-2bfa8230f139",
+    "__type": "InventoryItemCreated",
+    "name": "Test 2"
+  },
+  {
+    "__aggregateId": "6b8205da-0fd5-4fc7-be81-3df0db19bd23",
+    "_id": "6b8205da-0fd5-4fc7-be81-3df0db19bd23",
     "__type": "InventoryItemRenamed",
-    "_id": "7aeceee9-4ff8-4157-9228-a5e6f13492d5",
-    "type": "InventoryItemRenamed",
-    "name": "Old Super Test"
+    "name": "Test 1"
   },
   {
-    "__aggregateId": "7aeceee9-4ff8-4157-9228-a5e6f13492d5",
+    "__aggregateId": "6b8205da-0fd5-4fc7-be81-3df0db19bd23",
+    "_id": "6b8205da-0fd5-4fc7-be81-3df0db19bd23",
     "__type": "ItemsCheckedInToInventory",
-    "_id": "7aeceee9-4ff8-4157-9228-a5e6f13492d5",
-    "type": "ItemsCheckedInToInventory",
     "count": 100
   },
   {
-    "__aggregateId": "7aeceee9-4ff8-4157-9228-a5e6f13492d5",
+    "__aggregateId": "6b8205da-0fd5-4fc7-be81-3df0db19bd23",
+    "_id": "6b8205da-0fd5-4fc7-be81-3df0db19bd23",
     "__type": "ItemsRemovedFromInventory",
-    "_id": "7aeceee9-4ff8-4157-9228-a5e6f13492d5",
-    "type": "ItemsRemovedFromInventory",
     "count": 50
   },
   {
-    "__aggregateId": "7aeceee9-4ff8-4157-9228-a5e6f13492d5",
-    "__type": "InventoryItemDeactivated",
-    "_id": "7aeceee9-4ff8-4157-9228-a5e6f13492d5",
-    "type": "InventoryItemDeactivated"
+    "__aggregateId": "6b8205da-0fd5-4fc7-be81-3df0db19bd23",
+    "_id": "6b8205da-0fd5-4fc7-be81-3df0db19bd23",
+    "__type": "InventoryItemDeactivated"
   }
 ]

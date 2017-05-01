@@ -2,7 +2,7 @@ import Immutable from 'seamless-immutable';
 
 export default {
     InventoryItemListView: {
-        initialState: Immutable({}),
+        initialState: () => Immutable({}),
 
         handlers: {
             InventoryItemCreated: (state, event) =>
@@ -20,7 +20,7 @@ export default {
     },
 
     InventoryItemDetailView: {
-        initialState: Immutable({}),
+        initialState: () => Immutable({}),
 
         handlers: {
             InventoryItemCreated: (state, event) =>

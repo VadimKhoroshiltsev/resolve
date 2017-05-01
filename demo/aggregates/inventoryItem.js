@@ -1,21 +1,18 @@
 import Immutable from 'seamless-immutable';
 
 export default {
-    inventoryItem: {
-        __applyEvent: (state, event) => {
-            switch (event.type) {
-                case 'InventoryItemCreated':
-                    return Immutable({ _id: event._id, _activated: true });
-                case 'InventoryItemDeactivated':
-                    return state.setIn(['_activated'], false);
-                default:
-                    return state;
-            }
-        },
+    handlers: {
+        InventoryItemCreated: (_, event) =>
+            Immutable({ _id: event._id, _activated: true }),
 
+        InventoryItemDeactivated: state =>
+            state.setIn(['_activated'], false)
+    },
+
+    commands: {
         create: (state, { inventoryItemId, name }) => ({
             _id: inventoryItemId,
-            type: 'InventoryItemCreated',
+            __type: 'InventoryItemCreated',
             name
         }),
 
@@ -24,7 +21,7 @@ export default {
 
             return {
                 _id: state._id,
-                type: 'InventoryItemRenamed',
+                __type: 'InventoryItemRenamed',
                 name: newName
             };
         },
@@ -34,17 +31,16 @@ export default {
 
             return {
                 _id: state._id,
-                type: 'ItemsRemovedFromInventory',
+                __type: 'ItemsRemovedFromInventory',
                 count
             };
         },
 
         checkIn: (state, { count }) => {
             if (count <= 0) throw new Error('must have a count greater than 0 to add to inventory');
-
             return {
                 _id: state._id,
-                type: 'ItemsCheckedInToInventory',
+                __type: 'ItemsCheckedInToInventory',
                 count
             };
         },
@@ -54,7 +50,7 @@ export default {
 
             return {
                 _id: state._id,
-                type: 'InventoryItemDeactivated'
+                __type: 'InventoryItemDeactivated'
             };
         }
     }

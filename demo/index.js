@@ -13,7 +13,7 @@ import busDriver from '../packages/resolve-bus-memory/dist';
 import commandHandler from '../packages/resolve-command/dist';
 import query from '../packages/resolve-query/dist';
 
-import domain from './domain';
+import inventoryItemAggregate from './aggregates/inventoryItem';
 import readModel from './read-model';
 
 const setupMiddlewares = (app) => {
@@ -27,9 +27,9 @@ const app = express();
 
 const eventStore = createStore({driver: esDriver({pathToFile: './storage/eventStore' })});
 const bus = createBus({ driver: busDriver()});
-const execute = commandHandler({ store: eventStore, bus, aggregates: domain });
-const getList = query({ eventStore, eventBus: bus, projection: readModel.InventoryItemListView });
-const getDetails = query({ eventStore, eventBus: bus, projection: readModel.InventoryItemDetailView });
+const execute = commandHandler({ store: eventStore, bus, aggregate: inventoryItemAggregate });
+const getList = query({ store: eventStore, bus, projection: readModel.InventoryItemListView });
+const getDetails = query({ store: eventStore, bus, projection: readModel.InventoryItemDetailView });
 
 setupMiddlewares(app);
 
@@ -41,11 +41,7 @@ app.get('/', function (req, res) {
 })
 
 function postHandler(res, command) {
-
-
-    execute(Object.assign({
-        __aggregateName: 'inventoryItem'
-    }, command))
+    execute(command)
         .then(() => res.redirect('/'))
         .catch(() => res.redirect('/'))
 }
@@ -53,8 +49,8 @@ function postHandler(res, command) {
 app.post('/', (req, res) => {
     const id = uuid.v4();
     const command = {
-        __commandName: 'create',
-        __aggregateId: id,
+        commandName: 'create',
+        aggregateId: id,
         name: req.body.name,
         inventoryItemId: id
     };
@@ -82,8 +78,8 @@ app.get('/changename/:id', (req, res) => {
 
 app.post('/changename/:id', (req, res) => {
     postHandler(res, {
-        __aggregateId: req.params.id,
-        __commandName: 'changeName' ,
+        aggregateId: req.params.id,
+        commandName: 'changeName' ,
         newName: req.body.newName
     })
 });
@@ -99,8 +95,8 @@ app.get('/checkin/:id', (req, res) => {
 
 app.post('/checkin/:id', (req, res) => {
     postHandler(res, {
-        __aggregateId: req.params.id,
-        __commandName: 'checkIn' ,
+        aggregateId: req.params.id,
+        commandName: 'checkIn',
         count: Number.parseInt(req.body.count)
     })
 });
@@ -116,8 +112,8 @@ app.get('/remove/:id', (req, res) => {
 
 app.post('/remove/:id', (req, res) => {
     postHandler(res, {
-        __aggregateId: req.params.id,
-        __commandName: 'remove' ,
+        aggregateId: req.params.id,
+        commandName: 'remove' ,
         count: Number.parseInt(req.body.count)
     })
 });
@@ -133,8 +129,8 @@ app.get('/deactivate/:id', (req, res) => {
 
 app.post('/deactivate/:id', (req, res) => {
     postHandler(res, {
-        __aggregateId: req.params.id,
-        __commandName: 'deactivate'
+        aggregateId: req.params.id,
+        commandName: 'deactivate'
     })
 });
 
